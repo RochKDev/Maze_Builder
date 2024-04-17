@@ -24,8 +24,8 @@ public class Maze {
 
     /**
      * Generates a maze using the Depth first search method starting at the given position.
-     * @param row the column where to start.
-     * @param col the row where to start.
+     * @param row the row where to start.
+     * @param col the column where to start.
      */
     public void generateDepthFirst(int row, int col){
 
@@ -102,14 +102,17 @@ public class Maze {
 
     /**
      * Searches for a path between the node at the source position and the node at the destination position.
-     * If the is no path possible, it will be null.
+     * If there is no path possible, it will be null.
      * @param sourcePosition the position of the source node.
      * @param destinationPosition the position of the destination node.
      * @throws OutOfBoundsNodeException when the destination node is not in the maze.
      */
     public void findDFSPath(Position sourcePosition, Position destinationPosition) throws OutOfBoundsNodeException {
-        if(sourcePosition.getRow() > this.rows || destinationPosition.getColumn() > this.columns){
+        if(destinationPosition.getRow() > this.rows || destinationPosition.getColumn() > this.columns){
             throw new OutOfBoundsNodeException("The destination node isn't in the maze");
+        }
+        if(sourcePosition.getRow() > this.rows || sourcePosition.getColumn() > this.columns){
+            throw new OutOfBoundsNodeException("The source node isn't in the maze");
         }
         var sourceNode = this.nodes.get("square" + sourcePosition.getRow() + sourcePosition.getColumn());
         var destinationNode = this.nodes.get("square" + destinationPosition.getRow() + destinationPosition.getColumn());
@@ -161,6 +164,13 @@ public class Maze {
 
         path.remove(path.size() - 1);  // Remove the last node if no path is found from this node
         return false;
+    }
+
+    public void findAStarPath(Position sourcePosition, Position destinationPosition) throws OutOfBoundsNodeException {
+        
+    }
+    public boolean contains(Position pos){
+        return ((pos.getRow() >= 0 && pos.getRow() <= this.rows) && (pos.getColumn() >= 0 && pos.getColumn() <= this.columns));
     }
     public boolean findIfConnected(Square node1, Square node2){
         return graph.hasEdge(node1, node2);

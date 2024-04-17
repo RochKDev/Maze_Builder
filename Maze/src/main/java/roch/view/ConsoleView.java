@@ -45,8 +45,6 @@ public class ConsoleView implements View {
             }else {
                 System.out.print("   ");
             }
-
-
             try {
                 if (maze.findIfConnected(current, maze.getNodes().get("square" + line + (i + 1)))) {// if the node is connected from right
                     System.out.print(" ");
@@ -92,21 +90,21 @@ public class ConsoleView implements View {
     }
 
     @Override
-    public void errorMessage(String errorMessage){
-        System.out.println(errorMessage);
+    public void displayMessage(String Message){
+        System.out.println(Message);
     }
 
     @Override
     public Position askPosition(String message){
         System.out.println(message);
-        System.out.println("Enter the row of the position please (starts at 0)");
+        System.out.println("Enter the row of the position please (starts at 0) : ");
         while (!scanner.hasNextInt()) {
             scanner.nextLine();
             System.out.println("Please enter a valid number");
         }
         int row = scanner.nextInt();
 
-        System.out.println("Enter the column of the position please (starts at 0)");
+        System.out.println("Enter the column of the position please (starts at 0) : ");
         while (!scanner.hasNextInt()) {
             scanner.nextLine();
             System.out.println("Please enter a valid number");
@@ -115,4 +113,19 @@ public class ConsoleView implements View {
 
         return new Position(row, column);
     }
+
+    @Override
+    public void displayWelcomeMessage(){
+        System.out.println("Welcome in my maze builder app!");
+        System.out.println("This app lets you build a maze using a given algorithm.");
+        System.out.println("It also lets you resolve the maze you created with another algorithm of your choice.");
+    }
+
+    @Override
+    public String askForString(String message){
+        System.out.println(message);
+        return scanner.nextLine();
+    }
+
+
 }

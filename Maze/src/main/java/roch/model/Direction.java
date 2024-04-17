@@ -23,7 +23,6 @@ public enum Direction {
     Direction(int deltaRow, int deltaColumn) {
         this.deltaRow = deltaRow;
         this.deltaColumn = deltaColumn;
-
     }
 
     /**

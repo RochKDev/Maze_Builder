@@ -23,9 +23,9 @@ public interface View {
 
     /**
      * Displays an error message.
-     * @param errorMessage the message to display.
+     * @param Message the message to display.
      */
-    public void errorMessage(String errorMessage);
+    public void displayMessage(String Message);
 
     /**
      * Asks a user for a position with the given message.
@@ -33,6 +33,13 @@ public interface View {
      * @return the position entered by the user.
      */
     public Position askPosition(String message);
+
+    /**
+     * Displays a welcome message to the console.
+     */
+    public void displayWelcomeMessage();
+
+    public String askForString(String message);
 
 
 }
