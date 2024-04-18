@@ -79,6 +79,7 @@ public class ConsoleView implements View {
             System.out.println("Please enter a valid number");
         }
         dimensions[0] = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("Enter the dimensions for the height");
         while (!scanner.hasNextInt()) {
@@ -86,6 +87,7 @@ public class ConsoleView implements View {
             System.out.println("Please enter a valid number");
         }
         dimensions[1] = scanner.nextInt();
+        scanner.nextLine();
         return dimensions;
     }
 
@@ -103,6 +105,7 @@ public class ConsoleView implements View {
             System.out.println("Please enter a valid number");
         }
         int row = scanner.nextInt();
+        scanner.nextLine();
 
         System.out.println("Enter the column of the position please (starts at 0) : ");
         while (!scanner.hasNextInt()) {
@@ -110,6 +113,7 @@ public class ConsoleView implements View {
             System.out.println("Please enter a valid number");
         }
         int column = scanner.nextInt();
+        scanner.nextLine();
 
         return new Position(row, column);
     }

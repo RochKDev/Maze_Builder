@@ -170,7 +170,7 @@ public class Maze {
         
     }
     public boolean contains(Position pos){
-        return ((pos.getRow() >= 0 && pos.getRow() <= this.rows) && (pos.getColumn() >= 0 && pos.getColumn() <= this.columns));
+        return ((pos.getRow() >= 0 && pos.getRow() < this.rows) && (pos.getColumn() >= 0 && pos.getColumn() < this.columns));
     }
     public boolean findIfConnected(Square node1, Square node2){
         return graph.hasEdge(node1, node2);
